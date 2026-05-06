@@ -45,7 +45,7 @@ Choose the mode that matches the campaign intent:
 | `hook_mode` | Viral intro / first-3-second hook |
 | `privacy_mode` | Data trust and personal sovereignty story |
 | `women_wellness_mode` | Quiet, emotionally restrained women health campaign |
-| `veo_mode` | AI video generation prompts (Veo 3, Runway, Sora) |
+| `veo_mode` | AI video generation prompts (Veo 3, Runway) |
 | `capcut_mode` | CapCut editing timeline |
 | `tts_mode` | Edge TTS voiceover pacing and script |
 | `code_mode` | GSAP, Remotion, Motion Canvas, ScrollTrigger |
@@ -158,7 +158,7 @@ Pacing rules:
 
 These rules apply to all Veo prompts and storyboards involving product UI.
 
-- Never generate branded UI in Veo, Runway, or Sora prompts.
+- Never generate branded UI in Veo, Runway prompts.
 - Always composite in post: Real Figma screens or device screenshots, real product typography, real branded overlays (CapCut, After Effects, Remotion)
 - In Veo prompts, only generate: real-world environments, human subjects and authentic interactions, hands and devices (not screens), emotional context and atmosphere
 
@@ -168,7 +168,7 @@ Why: AI-generated UI looks fake, breaks trust, and undermines brand credibility.
 
 ## Veo Prompt Rules
 
-When generating prompts for Veo 3, Runway Gen-4, or Sora:
+When generating prompts for Veo 3, Runway Gen-4:
 
 - NEVER ask AI video models to generate exact branded UI.
 
@@ -348,7 +348,7 @@ User wants...
 │   └── code_mode: GSAP ScrollTrigger
 ├── Particle systems / canvas physics / generative motion
 │   └── code_mode: Canvas / WebGL (Three.js / p5.js)
-└── AI-generated video (Veo, Runway, Sora)
+└── AI-generated video (Veo, Runway)
     └── veo_mode
 ```
 
@@ -482,7 +482,7 @@ tl.from(".element-1", { x: -200, opacity: 0 })
 
 ## CODE MODE: AI Video APIs
 
-Read: `references/ai-video-apis.md` for Veo 3, Runway Gen-4, Sora prompt engineering.
+Read: `references/ai-video-apis.md` for Veo 3, Runway Gen-4 prompt engineering.
 
 Prompt engineering priorities:
 
@@ -602,4 +602,4 @@ Load these for deeper patterns on specific modes:
 - `references/remotion.md` -- Remotion compositions, hooks, Audio, Video, Player
 - `references/motion-canvas.md` -- Motion Canvas scenes, signals, camera, shaders
 - `references/framer-scrolltrigger-svg-canvas.md` -- Framer, ScrollTrigger, SVG, Three.js, p5
-- `references/ai-video-apis.md` -- Veo 3, Runway Gen-4, Sora prompt engineering + API calls
+- `references/ai-video-apis.md` -- Veo 3, Runway Gen-4 prompt engineering + API calls
