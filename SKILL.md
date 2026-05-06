@@ -56,25 +56,16 @@ When ambiguous: use `commercial_mode` for ads, `code_mode` for web animation, `v
 
 ## Brand Reality Layer
 
-Before generating any commercial, define the brand context. Without this, output becomes generic.
-
-Required fields:
+Before generating any commercial, define:
 
 - Product name
-- Category
+- Product category
 - Primary audience
 - Core differentiation
 - What must be visible in the first 10 seconds
 - What must never be implied falsely
 
-Example for Vivlune:
-
-- Product: Vivlune
-- Category: privacy-first women wellness and cycle tracking app
-- Primary audience: women 20-40 who distrust corporate health data collection
-- Core differentiation: data ownership stays with the user, never sold
-- Must show in first 10 seconds: a woman, a phone, an intimate private moment
-- Must never imply: AI diagnosis, medical claims, surveillance features
+Do not generate scenes until these are clear.
 
 ---
 
@@ -94,13 +85,12 @@ Without this test, AI generates filler.
 
 The first 10 seconds must answer:
 
-- What is this about?
-- Why should I care?
-- Why is this different?
+1. What is this about?
+2. Why should the viewer care?
+3. Why is this product different?
+4. Where does the product or brand enter the story?
 
-No abstract poetic openings unless they immediately connect to the product category.
-The first 3 seconds must create a strong visual or emotional hook.
-No slow reveals of product name. Ground the viewer in the world first.
+No abstract opening is allowed unless it connects quickly to the product category and core problem.
 
 ---
 
@@ -212,19 +202,16 @@ Overhead shot of a woman setting her phone face-down on a wooden table [5s], sof
 
 ## Veo Prompt Compression Rule
 
-Avoid overstuffed Veo prompts. Too many adjectives collapse into visual noise.
+Each Veo prompt should contain:
 
-Each Veo prompt must contain exactly:
+1. One subject
+2. One primary action
+3. One emotional state
+4. One camera movement
+5. One lighting direction
+6. One negative constraint block
 
-- 1 subject
-- 1 action
-- 1 emotional state
-- 1 camera movement
-- 1 lighting direction
-- 1 negative constraint (no text, no fake UI, no neon)
-
-Maximum 2 style tags at the end (e.g. cinematic 4K, film grain).
-Do not stack: "premium cinematic emotional luxurious soft realistic warm intimate." Pick the 2 that matter most.
+Avoid stacking too many adjectives. If a prompt feels overloaded, simplify before output.
 
 ---
 
@@ -249,6 +236,7 @@ For every scene in a commercial or storyboard, output structured JSON:
 ```
 
 The `scene_exists_because` field is mandatory. It enforces the Scene Existence Test.
+
 ---
 
 ## Premium Video Rules
@@ -512,16 +500,16 @@ Before delivering any output, verify:
 
 For video / commercial work:
 
+- Brand Reality Layer defined (product, category, audience, differentiation, must-show, must-not-imply)
 - Scene Existence Test passed for every scene
 - Scene JSON provided with `scene_exists_because` field
-- Brand Reality Layer defined (product, audience, must-show, must-not-imply)
 - Veo prompts follow Compression Rule (1 subject, 1 action, 1 emotion, 1 camera, 1 light, 1 negative)
 - Veo prompts exclude branded UI
 - TTS script has pause markers
 - CapCut edit structure included if requested
 - No Forbidden Patterns present
 - Human Emotion Rules applied to acting direction
-- First 10 Seconds Rule applied (what, why care, why different)
+- First 10 Seconds Rule applied (what, why care, why different, where brand enters)
 - First 3 seconds create a strong hook
 
 For code animations:
@@ -599,9 +587,9 @@ Generate:
 - CapCut edit structure
 - Edge TTS voiceover with pause markers
 - UI overlay plan
-Mode: women_wellness_mode
-Style: Apple/Oura level, emotionally restrained premium campaign
-Core theme: Women quietly passing privacy and trust forward across generations.
+Mode: [narrative_mode]
+Style: [visual style direction]
+Brand brief: [paste Brand Reality Layer filled in for your product]
 ```
 
 ---
