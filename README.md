@@ -4,11 +4,11 @@
 
 # motion-composer-skill
 
-**A Claude skill for cinematic product video direction and production-grade motion design.**
+**AI-Native Cinematic Product Commercial System for Claude.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-FF6B00?logo=anthropic)](https://github.com/designbysuren/motion-composer-skill)
-[![Tools](https://img.shields.io/badge/Tools-GSAP%7C%20Remotion%7C%20Motion%20Canvas%7C%20ScrollTrigger%7C%20Veo%203-black)](SKILL.md)
+[![Tools](https://img.shields.io/badge/Tools-GSAP%7CRemotion%7CMotion%20Canvas%7CScrollTrigger%7CVeo%203-black)](SKILL.md)
 
 </div>
 
@@ -18,18 +18,22 @@
 
 Turns Claude into a full cinematic production pipeline, not just a code helper.
 
-Claude operates as a Creative Director, Motion Designer, Video Editor, Cinematic Storyboard Artist, and Remotion / CapCut Orchestrator.
+Claude operates as a Premium Cinematic Product Director: Creative Director, Motion Designer, Video Editor, Cinematic Storyboard Artist, and Remotion / CapCut Orchestrator.
 
 **Claude can:**
+
 - Choose the right framework for every request (GSAP, Remotion, Motion Canvas, Framer Motion, or AI video)
 - Apply the 12 Animation Principles translated into code patterns
 - Generate production-ready animations with correct easing, timing, and performance
 - Build Remotion video compositions for product demos and App Store previews
 - Write ScrollTrigger scroll sequences, SVG path animations, and Three.js scenes
 - Compose AI video prompts for Veo 3, Runway Gen-4, and Sora with correct compositing strategy
-- Generate full cinematic storyboards with scene JSON
+- Generate full cinematic storyboards with scene JSON (including mandatory Scene Existence Test)
 - Write TTS voiceover scripts with cinematic pause markers
 - Output CapCut-ready editing timelines
+- Enforce Forbidden Patterns to prevent quality degradation
+- Apply Human Emotion Rules for restrained, believable performances
+- Follow UI Reality Rules: real app UI composited in post, never generated in Veo
 
 ---
 
@@ -43,7 +47,7 @@ git clone https://github.com/designbysuren/motion-composer-skill ~/.claude/skill
 
 Claude will automatically detect and use the skill when relevant.
 
-**Manual:** Copy `SKILL.md` into any `.claude/skills/` directory in your project.
+**Manual:** Copy SKILL.md into any `.claude/skills/` directory in your project.
 
 ---
 
@@ -52,17 +56,13 @@ Claude will automatically detect and use the skill when relevant.
 ### Cinematic Commercial
 
 ```
-Using motion-composer-skill:
-
-Create a 90-second cinematic Vivlune launch commercial.
-
+Using motion-composer-skill: Create a 90-second cinematic Vivlune launch commercial.
 Generate:
 - full storyboard with scene JSON
 - Veo 3 prompts for each scene
 - CapCut edit structure
 - Edge TTS voiceover with pause markers
 - UI overlay plan
-
 Style: Apple/Oura level, emotionally restrained premium women wellness campaign
 Core theme: Women quietly passing privacy and trust forward across generations.
 ```
@@ -94,6 +94,8 @@ Use the motion-composer skill.
 | `story_mode` | Emotional narrative campaigns |
 | `walkthrough_mode` | Product feature walkthroughs |
 | `hook_mode` | Viral intro / first-3-second hooks |
+| `privacy_mode` | Trust, data safety, dignity-forward campaigns |
+| `women_wellness_mode` | Restrained premium women health and wellness campaigns |
 | `veo_mode` | AI video generation prompts (Veo 3, Runway, Sora) |
 | `capcut_mode` | CapCut editing timeline plans |
 | `tts_mode` | Edge TTS voiceover pacing and script |
@@ -103,24 +105,22 @@ Use the motion-composer skill.
 
 ## Decision Tree
 
-```
-User wants...                                Tool
----------------------------------------------------------------------
-Cinematic product commercial / brand film    commercial_mode
-Looping web animation / micro-interaction    GSAP + HTML/CSS
-SVG path drawing or morphing                 GSAP DrawSVG / CSS stroke
-Programmatic video / MP4 export              Remotion
-After Effects-style scene (imperative)       Motion Canvas
-Scroll-triggered storytelling / parallax     GSAP ScrollTrigger
-Particle systems / generative motion         Canvas / Three.js / p5.js
-AI-generated video                           Veo 3 / Runway / Sora API
-```
+| User wants... | Tool |
+|---------------|------|
+| Cinematic product commercial / brand film | commercial_mode |
+| Looping web animation / micro-interaction | GSAP + HTML/CSS |
+| SVG path drawing or morphing | GSAP DrawSVG / CSS stroke |
+| Programmatic video / MP4 export | Remotion |
+| After Effects-style scene (imperative) | Motion Canvas |
+| Scroll-triggered storytelling / parallax | GSAP ScrollTrigger |
+| Particle systems / generative motion | Canvas / Three.js / p5.js |
+| AI-generated video | Veo 3 / Runway / Sora API |
 
 ---
 
 ## Scene JSON Output
 
-Every commercial scene gets structured JSON:
+Every commercial scene passes the Scene Existence Test and outputs structured JSON:
 
 ```json
 {
@@ -132,21 +132,53 @@ Every commercial scene gets structured JSON:
   "voiceover": "Every woman tracks something personal",
   "ambient_audio": "ocean waves",
   "overlay": "none",
-  "editing_style": "slow cinematic tension"
+  "editing_style": "slow cinematic tension",
+  "scene_exists_because": "Opens emotional stakes by grounding the story in a universal private moment"
 }
 ```
+
+The `scene_exists_because` field is mandatory. No scene is written without a clear emotional, narrative, and visual reason.
+
+---
+
+## Forbidden Patterns
+
+These patterns are permanently banned and will never appear in output:
+
+**Visuals:** dark neon gradients, cyberpunk aesthetics, floating holograms, fake futuristic UI, lens flares as mood, glitch effects as style
+
+**Acting / Pacing:** influencer-style over-expression, startup explainer energy, stock footage body language, reaction shots without emotional grounding
+
+**Writing:** "revolutionizing", "seamlessly", "powerful AI", "game-changing", generic SaaS copy
+
+---
+
+## Human Emotion Rules
+
+- Restrained, not performed
+- Subtle, not exaggerated
+- Believable, quietly observed
+- Silence and stillness carry as much weight as action
+
+---
+
+## UI Reality Rules
+
+- Never generate branded app UI inside Veo or any AI video model
+- Real app screens are always composited in post: CapCut, After Effects, or Remotion
+- Phone interactions show the hand, the gesture, the light on the face, not the screen contents
 
 ---
 
 ## Timing Reference
 
 | Feel | Duration | Easing |
-|------|----------|--------|
-| Snappy | 100-200ms | `power3.out` |
-| UI / interactive | 200-350ms | `power2.inOut` |
-| Page transition | 400-600ms | `expo.out` |
-| Cinematic | 800ms-1.5s | `power1.inOut` |
-| Ambient loop | 2s-8s | `sine.inOut` |
+|------|---------|--------|
+| Snappy | 100-200ms | power3.out |
+| UI / interactive | 200-350ms | power2.inOut |
+| Page transition | 400-600ms | expo.out |
+| Cinematic | 800ms-1.5s | power1.inOut |
+| Ambient loop | 2s-8s | sine.inOut |
 
 ---
 
@@ -154,16 +186,16 @@ Every commercial scene gets structured JSON:
 
 ```
 motion-composer-skill/
-SKILL.md                               the brain Claude reads
-references/
-  gsap.md                              Full GSAP API, plugins, patterns
-  remotion.md                          Remotion compositions, hooks, Player
-  motion-canvas.md                     Motion Canvas scenes, signals, camera
-  framer-scrolltrigger-svg-canvas.md   Framer, ScrollTrigger, SVG, Three.js, p5
-  ai-video-apis.md                     Veo 3, Runway Gen-4, Sora API calls
-motion-composer.gif                    animated banner
-README.md
-LICENSE
+  SKILL.md                          the brain Claude reads
+  references/
+    gsap.md                         Full GSAP API, plugins, patterns
+    remotion.md                     Remotion compositions, hooks, Player
+    motion-canvas.md                Motion Canvas scenes, signals, camera
+    framer-scrolltrigger-svg-canvas.md  Framer, ScrollTrigger, SVG, Three.js, p5
+    ai-video-apis.md                Veo 3, Runway Gen-4, Sora API calls
+  motion-composer.gif               animated banner
+  README.md
+  LICENSE
 ```
 
 ---
@@ -171,21 +203,22 @@ LICENSE
 ## Using with Other Agents
 
 **Cursor** -- add to `.cursorrules`:
+
 ```
-For any animation, motion graphics, video composition, or cinematic storyboard
-requests, apply the motion-composer skill. Reference SKILL.md for the decision
-tree, execution modes, and patterns.
+For any animation, motion graphics, video composition, or cinematic storyboard requests,
+apply the motion-composer skill. Reference SKILL.md for the decision tree, execution modes,
+and patterns.
 ```
 
 **Codex CLI / Opencode** -- add to `AGENTS.md`:
+
 ```
-For animations, motion graphics, videos, GSAP, Remotion, ScrollTrigger,
-cinematic storyboards, or AI video prompt requests, apply the rules in
-SKILL.md (motion-composer skill).
+For animations, motion graphics, videos, GSAP, Remotion, ScrollTrigger, cinematic storyboards,
+or AI video prompt requests, apply the rules in SKILL.md (motion-composer skill).
 ```
 
-**ChatGPT / API** -- paste `SKILL.md` contents into the system prompt.
+**ChatGPT / API** -- paste SKILL.md contents into the system prompt.
 
 ---
 
-Built with love by [designbysuren](https://github.com/designbysuren) - MIT License
+Built with love by designbysuren - MIT License
